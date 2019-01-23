@@ -1,0 +1,14 @@
+<h2><%= @attraction.name %></h2>
+<br>
+
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+<% if !@user.admin %>
+  <%= form_tag('/ride', method: 'post') do %>
+    <%= hidden_field_tag 'id', @attraction.id %>
+    <%= button_tag 'Go on this ride', method: 'post' %>
+  <% end %>
+<% else %>
+  <%= link_to 'Edit Attraction', edit_attraction_path(@attraction) %>
+<% end %>

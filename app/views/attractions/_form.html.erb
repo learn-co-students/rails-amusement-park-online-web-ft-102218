@@ -1,0 +1,11 @@
+<% if user.admin %>
+  <h2><%= 'New Attraction' %></h2>
+  <%= form_for(attraction) do |f| %>
+    Name: <%= f.text_field :name %> <br>
+    Min Height: <%= f.text_field :min_height %> <br>
+    Nausea Rating: <%= f.text_field :nausea_rating %> <br>
+    Happiness Rating: <%= f.text_field :happiness_rating %> <br>
+    Tickets: <%= f.text_field :tickets %> <br>
+    <%= f.submit %>
+  <% end %>
+<% end %>
