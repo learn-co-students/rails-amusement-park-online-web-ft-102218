@@ -1,0 +1,17 @@
+<% if @message %>
+  <%= @message %>
+<% end %>
+<% if @user.admin %>
+  <h1>ADMIN</h1>
+<% end %>
+<ul id='attributes'>
+  <% @user.attributes.each do |attribute| %>
+    <li>
+      <%= "#{attribute[0].capitalize}: #{attribute[1]}" %>
+    </li>
+  <% end %>
+  <li>Mood: <%= @user.mood %></li>
+  <li><%= link_to 'Edit', edit_user_url(@user) %></li>
+  <li><%= link_to 'See attractions', attractions_url %></li>
+</ul>
+

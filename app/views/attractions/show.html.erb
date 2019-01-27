@@ -1,0 +1,17 @@
+<ul id='attributes'>
+  <% @attraction.attributes.each do |attribute| %>
+    <li>
+      <%= "#{attribute[0].capitalize}: #{attribute[1]}" %>
+    </li>
+  <% end %>  
+  <%= form_tag '/rides/new' do |f| %>
+    <%= hidden_field_tag :user_id, current_user.id %>
+    <%= hidden_field_tag :attraction_id, @attraction.id %>
+    <%= submit_tag "Go on this ride" %>
+  <% end %>
+</ul>
+
+<% if current_user.admin %>
+  <%= link_to 'Edit Attraction', edit_attraction_path(@attraction) %>
+<% end %>
+
