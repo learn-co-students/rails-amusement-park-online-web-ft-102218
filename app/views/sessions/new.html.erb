@@ -1,0 +1,5 @@
+<%= form_for @user, :url => { :action => 'create' } do |f| %>
+    <%= f.collection_select :name, @users, :name, :name %>
+    <%= f.password_field :password %>
+    <%= f.submit "Sign In" %>
+<% end %>

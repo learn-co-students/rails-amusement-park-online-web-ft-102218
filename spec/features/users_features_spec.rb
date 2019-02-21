@@ -26,7 +26,8 @@ describe 'Feature Test: User Signup', :type => :feature do
     # user_login method is defined in login_helper.rb
     create_standard_user
     visit '/signin'
-    expect(current_path).to eq('/signin')
+    expect(current_path).to eq('/signin')    
+    # byebug
     user_login
     expect(current_path).to eq('/users/1')
     expect(page).to have_content("Mindy")
